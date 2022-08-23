@@ -1,0 +1,23 @@
+from flask import Flask
+
+app=Flask(__name__)
+
+@app.route('/hello/<user>')
+def home(user):
+    return 'hello: ' + user
+
+@app.route('/add/<int:x>/<int:y>')
+def adding(x, y):
+    return str(x+y)
+
+@app.route('/long/<x>/<y>/<z>')
+def longest(x, y, z):
+    a=sorted([x, y, z], key=len)
+    return a[-1]
+
+@app.route('/path/<file>')
+def path(file):
+    return file
+
+if __name__=='__main__':
+    app.run()
