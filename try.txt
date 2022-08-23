@@ -1,4 +1,5 @@
 from flask import Flask
+import os
 
 app=Flask(__name__)
 
@@ -17,7 +18,9 @@ def longest(x, y, z):
 
 @app.route('/path/<file>')
 def path(file):
-    return file
+    if file in os.listdir(path=os.getcwd()):
+        return 'yes'
+    return 'no'
 
 if __name__=='__main__':
     app.run()
