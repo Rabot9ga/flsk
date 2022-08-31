@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title%}
+Texts page
+{% endblock %}
+
+{% block body%}
+<div class="container">
+    <h1>All pages in site</h1>
+    {% for element in pages%}
+    <div class="alert alert-info">
+      <h2>{{element.name}}</h2>
+      <p><b>Date: {{element.date.date()}}</b></p>
+      <a href="/posts/{{element.id}}" class="btn  btn-warning">See text</a>
+    </div>
+
+    {%endfor%}
+</div>
+{% endblock %}
